@@ -25,6 +25,7 @@ function Use-Array {
 }
 
 if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
-    Use-Array -Numbers @(1, 2, 3, 4, 5 )
+    Use-Array -Numbers @(6, 7, 8, 9, 10)
+    
 
 }
