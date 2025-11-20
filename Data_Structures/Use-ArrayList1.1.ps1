@@ -6,31 +6,33 @@ function Use-ArrayList {
         $list = [System.Collections.ArrayList]::new()
         $items = @("PowerShell", "C#", "Python", "Go")
 
-        # Add initial items to the list
-        for ($i = 0; $i -lt $items.Count; $i++) {
-            [void]$list.Add($items[$i])
-            Write-Output "Added: $($items[$i])"
+        # Add initial items
+        foreach ($item in $items) {
+            [void]$list.Add($item)
+            Write-Output "Added: $item"
         }
 
-        Write-Output "`nCurrent list: $list"
+        Write-Output "`nCurrent list: $($list -join ', ')"
 
-        # Loop through the list and remove/modify items as necessary
-        for ($i = 0; $i -lt $list.Count;) {  # Do not increment $i here
+        # Loop and remove/modify items
+        for ($i = 0; $i -lt $list.Count;) {
             if ($list[$i] -eq "Python") {
                 Write-Output "Removing: $($list[$i])"
-                $list.RemoveAt($i)  # Remove item at index $i
+                $list.RemoveAt($i)
             }
             elseif ($list[$i] -eq "Go") {
                 Write-Output "Adding: Rust"
                 [void]$list.Add("Rust")
-                $i++  # Move to the next item after adding Rust
+                $i++
             }
             else {
-                $i++  # Only increment $i for items that were not removed or modified
+                $i++
             }
         }
 
-        Write-Output "`nFinal list: $list"
+        Write-Output "`nFinal list: $($list -join ', ')"
+
+        return $list  # Return the actual ArrayList for testing
     }
     catch [System.Exception] {
         Write-Error "Message $($_.Exception.Message)"
