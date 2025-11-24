@@ -1,7 +1,7 @@
 Describe "Use-Array" {
 
     BeforeAll {
-        . "$PSScriptRoot\..\Use-Array.ps1"
+        . "$PSScriptRoot\..\Use-Array1.0.ps1"
     }
 
     It "Should correctly identify even and odd numbers" {

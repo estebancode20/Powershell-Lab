@@ -1,0 +1,22 @@
+{
+  // this is the tasks.json
+  // "command": "Test-Path -LiteralPath \"${workspaceFolder}\\Data_Structures\\Use-Array1.1.ps1\" | Write-Output"
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Pre-Launch Message",
+      "type": "shell",
+      "command": "echo Launch.json is working"
+    },
+    {
+      "label": "Post-Debug Message",
+      "type": "shell",
+      "command": "echo Debug session finished"
+    },
+    {
+      "label": "Pre-Check Workspace",
+      "type": "shell",
+      "command": "Test-Path '${workspaceFolder}/Data_Structures/Use-Array1.1.ps1' | Write-Output"
+    }
+  ]
+}
