@@ -4,17 +4,61 @@
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    
+    // All arguments are passed as strings.
     "version": "0.2.0",
     "configurations": [
-         {
+        {
             "type": "PowerShell",
             "request": "launch",
             "name": "Debug Use-Array1.1.ps1",
             "script": "${workspaceFolder}/Data_Structures/Use-Array1.1.ps1",
-            "args": ["-ShowOdd", "true"],
+            "args": [
+                "-ShowOdd",
+                "true"
+            ],
             "cwd": "${workspaceFolder}/Data_Structures",
             "preLaunchTask": "Pre-Check Workspace",
             "postDebugTask": "Post-Debug Message"
+        },
+        {
+            // It is passing the argument to the script
+            "name": "Test Argument Passing",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/Basic_Functions/Test-Arg.ps1",
+            "args": [
+                "-Message",
+                "HELLO_FROM_LAUNCH"
+            ]
+        },
+        {
+            // It is passing the two arguments to the script
+            "name": "Test Two Argument Passing",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/Basic_Functions/Test-TwoArgs.ps1",
+            "args": [
+                "-First",
+                "ARG_ONE",
+                "-Second",
+                "ARG_TWO"
+            ]
+        },
+        {
+            
+            // All arguments are passed as strings.
+            // It is passing the two arguments to the script
+            "name": "Test Two Number Passing",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/Basic_Functions/Test-TwoNumbers.ps1",
+            "args": [
+                "-Num1",
+                5,
+                "-Num2",
+                10
+            ]
         }
     ]
 }
