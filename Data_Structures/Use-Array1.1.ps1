@@ -1,14 +1,17 @@
+param(
+    [string]$ShowOdd = "false"  # default at script level
+)
+
 function Show-Numbers {
-    [CmdletBinding()]
     param(
-        [string]$ShowOdd = "true"  # accept string
+        [string]$ShowOddFunc
     )
 
+    Write-Host "DEBUG: ShowOdd parameter inside function = '$ShowOddFunc'"
+
     try {
-        # Convert the string $ShowOdd to boolean:
-        # Uses a regex to match So it matches strings like "true", "TRUE",
-        # or "1" exactly. If it matches, $ShowOddBool = $true; otherwise $false.
-        $ShowOddBool = if ($ShowOdd -match '^(?i)true|1$') { $true } else { $false }
+        # Convert the string $ShowOddFunc to boolean
+        $ShowOddBool = if ($ShowOddFunc -match '^(?i)true|1$') { $true } else { $false }
 
         $numbers = 1..5
         for ($i = 0; $i -lt $numbers.Length; $i++) {
@@ -24,8 +27,5 @@ function Show-Numbers {
     }
 }
 
-# Call function with parameter passed from launch.json
-if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
-    Show-Numbers -ShowOdd $ShowOdd
-}
-
+# Call function with script-level parameter
+Show-Numbers -ShowOddFunc $ShowOdd
