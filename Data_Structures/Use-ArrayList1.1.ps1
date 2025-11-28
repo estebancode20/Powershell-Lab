@@ -39,6 +39,10 @@ function Use-ArrayList {
     }
 }
 
-if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+# if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+#     Use-ArrayList
+# }
+
+if (-not $MyInvocation.ExpectingInput) {
     Use-ArrayList
 }

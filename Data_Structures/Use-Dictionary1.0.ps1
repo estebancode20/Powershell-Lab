@@ -24,6 +24,10 @@ function Use-Dictionary {
     }
 }
 
-if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+# if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+#     Use-Dictionary
+# }
+
+if (-not $MyInvocation.ExpectingInput) {
     Use-Dictionary
 }

@@ -30,6 +30,11 @@ function Use-GenericList {
 }
 
 # Run the function
-if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+# if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+#     Use-GenericList
+# }
+
+
+if (-not $MyInvocation.ExpectingInput) {
     Use-GenericList
 }

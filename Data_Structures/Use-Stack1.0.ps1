@@ -26,6 +26,11 @@ function Use-Stack {
     }
 }
 
-if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+# if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+#     Use-Stack
+# }
+
+
+if (-not $MyInvocation.ExpectingInput) {
     Use-Stack
 }

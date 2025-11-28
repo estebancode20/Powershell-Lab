@@ -22,6 +22,11 @@ function Use-Queue {
     }
 }
 
-if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+# if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+#     Use-Queue
+# }
+
+
+if (-not $MyInvocation.ExpectingInput) {
     Use-Queue
 }

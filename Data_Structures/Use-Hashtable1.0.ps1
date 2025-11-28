@@ -20,7 +20,14 @@ function Use-Hashtable {
     }
 }
 
-if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+# if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+#     # Hastable data structure is Unordered; optimized for fast key lookup
+#     $user = @{ Name = "Alice"; Age = 30; Role = "Admin"; Department = $null} 
+#     Use-Hashtable -UserInfo $user
+# }
+
+
+if (-not $MyInvocation.ExpectingInput) {
     # Hastable data structure is Unordered; optimized for fast key lookup
     $user = @{ Name = "Alice"; Age = 30; Role = "Admin"; Department = $null} 
     Use-Hashtable -UserInfo $user

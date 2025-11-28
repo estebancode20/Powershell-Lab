@@ -14,7 +14,7 @@
       "command": "echo Debug session finished"
     },
     {
-      "label": "Pre-Check Workspace",
+      "label": "Pre-Check Workspace Use-Array1.1.ps1",
       "type": "shell",
       "command": "Test-Path '${workspaceFolder}/Data_Structures/Use-Array1.1.ps1' | Write-Output"
     }

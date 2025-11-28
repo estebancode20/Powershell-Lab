@@ -21,7 +21,20 @@ function Use-Object {
     }
 }
 
-if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+# if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+#     $user = [pscustomobject]@{
+#         Name   = "Alice"
+#         Age    = 30
+#         Active = $true
+#         Joined = (Get-Date)
+#     }
+
+#     Use-Object -User $user
+# }
+
+
+
+if (-not $MyInvocation.ExpectingInput) {
     $user = [pscustomobject]@{
         Name   = "Alice"
         Age    = 30

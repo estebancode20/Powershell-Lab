@@ -33,7 +33,13 @@ function Use-Object {
 }
 
 
-if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+# if ($PSCommandPath -eq $MyInvocation.MyCommand.Path) {
+#     $proc = Get-Process | Select-Object -First 1
+#     Use-Object -Process $proc
+# }
+
+
+if (-not $MyInvocation.ExpectingInput) {
     $proc = Get-Process | Select-Object -First 1
-    Use-Object -Process $proc
+     Use-Object -Process $proc
 }
