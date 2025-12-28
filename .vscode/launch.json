@@ -20,53 +20,53 @@
             "preLaunchTask": "Pre-Check Workspace Use-Array1.1.ps1",
             "postDebugTask": "Post-Debug Message"
         },
-        {
-            // It is passing the argument to the script
-            "name": "Test Argument Passing",
-            "type": "PowerShell",
-            "request": "launch",
-            "script": "${workspaceFolder}/Basic_Functions/Test-Arg.ps1",
-            "args": [
-                "-Message",
-                "HELLO_FROM_LAUNCH"
-            ]
-        },
-        {
-            // It is passing the two arguments to the script
-            "name": "Test Two Argument Passing",
-            "type": "PowerShell",
-            "request": "launch",
-            "script": "${workspaceFolder}/Basic_Functions/Test-TwoArgs.ps1",
-            "args": [
-                "-First",
-                "ARG_ONE",
-                "-Second",
-                "ARG_TWO"
-            ]
-        },
-        {
-            // All arguments are passed as strings.
-            // It is passing the two arguments to the script
-            "name": "Test Two Number Passing",
-            "type": "PowerShell",
-            "request": "launch",
-            "script": "${workspaceFolder}/Basic_Functions/Test-TwoNumbers.ps1",
-            "args": [
-                "-Num1",
-                5,
-                "-Num2",
-                10
-            ]
-        },
-        {
-            // Debug a single Pester test file
-            "name": "Debug Use-Array.Tests1.0.ps1",
-            "type": "PowerShell",
-            "request": "launch",
-            "script": "${workspaceFolder}/Data_Structures/Tests/Use-Array.Tests1.0.ps1",
-            "cwd": "${workspaceFolder}/Data_Structures/Tests",
-            "args": [],
-            "postDebugTask": "Post-Debug Message"
-        }
+        // {
+        //     // It is passing the argument to the script
+        //     "name": "Test Argument Passing",
+        //     "type": "PowerShell",
+        //     "request": "launch",
+        //     "script": "${workspaceFolder}/Basic_Functions/Test-Arg.ps1",
+        //     "args": [
+        //         "-Message",
+        //         "HELLO_FROM_LAUNCH"
+        //     ]
+        // },
+        // {
+        //     // It is passing the two arguments to the script
+        //     "name": "Test Two Argument Passing",
+        //     "type": "PowerShell",
+        //     "request": "launch",
+        //     "script": "${workspaceFolder}/Basic_Functions/Test-TwoArgs.ps1",
+        //     "args": [
+        //         "-First",
+        //         "ARG_ONE",
+        //         "-Second",
+        //         "ARG_TWO"
+        //     ]
+        // },
+        // {
+        //     // All arguments are passed as strings.
+        //     // It is passing the two arguments to the script
+        //     "name": "Test Two Number Passing",
+        //     "type": "PowerShell",
+        //     "request": "launch",
+        //     "script": "${workspaceFolder}/Basic_Functions/Test-TwoNumbers.ps1",
+        //     "args": [
+        //         "-Num1",
+        //         5,
+        //         "-Num2",
+        //         10
+        //     ]
+        // },
+        // {
+        //     // Debug a single Pester test file
+        //     "name": "Debug Use-Array.Tests1.0.ps1",
+        //     "type": "PowerShell",
+        //     "request": "launch",
+        //     "script": "${workspaceFolder}/Data_Structures/Tests/Use-Array.Tests1.0.ps1",
+        //     "cwd": "${workspaceFolder}/Data_Structures/Tests",
+        //     "args": [],
+        //     "postDebugTask": "Post-Debug Message"
+        // }
     ]
 }
