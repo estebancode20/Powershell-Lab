@@ -1,0 +1,1 @@
+This repository contains hands-on PowerShell labs focused on Windows system administration. It covers scripting fundamentals, basic automation, Active Directory tasks, and testing with Pester. The goal is to build solid foundations for a junior system administrator role, with ongoing improvements.
