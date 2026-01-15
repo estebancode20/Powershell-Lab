@@ -27,3 +27,7 @@ First 10 Services: $($services.Name -join ', ')
 catch {
     Write-Error $_
 }
+
+
+# # Create the directory if it does not exist (Out-File cannot create folders)
+# New-Item -Path C:\Scripts -ItemType Directory -Force
