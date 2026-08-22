@@ -1,0 +1,45 @@
+[Windows Server] ──promote──> [Domain Controller (DC1)]  ← defines Forest Root Domain Name: "corp.acme"
+
+├── Domain: corp.acme (Forest Root Domain)
+│    ├── Domain Controller: DC1.corp.acme  ← runs on this server
+│    ├── Domain Name: corp.acme  ← defined during promotion; becomes Forest Root Domain Name
+│    ├── Domain Components: DC=corp,DC=acme  ← derived automatically from Domain Name; used in LDAP (Lightweight Directory Access Protocol) paths
+│    ├── OU: IT
+│    │    └── User: alice
+│    └── OU: HR
+│         └── User: bob
+│
+├── Domain: sales.corp.acme (Child Domain)
+│    ├── Domain Controller: DC1.sales.corp.acme  ← runs on same server
+│    ├── Domain Name: sales.corp.acme  ← defined when creating child domain
+│    ├── Domain Components: DC=sales,DC=corp,DC=acme
+│    └── OU: Sales
+│         └── User: carlos
+│
+├── Domain: dev.corp.acme (Child Domain)
+│    ├── Domain Controller: DC1.dev.corp.acme  ← runs on same server
+│    ├── Domain Name: dev.corp.acme  ← defined when creating child domain
+│    ├── Domain Components: DC=dev,DC=corp,DC=acme
+│    └── OU: Dev
+│         └── User: diana
+
+# RULES & CLARIFICATIONS:
+# 1. One Windows Server → one promotion → one forest only.
+# 2. A forest can contain:
+#    - Forest Root Domain → defined during server promotion (Domain Name becomes Forest Root Domain Name)
+#    - Child domains → created later under root domain
+# 3. Independent domains → cannot exist in this server/forest; require separate server/forest
+# 4. Each domain must have at least one Domain Controller (DC)
+# 5. Domain Name → defined during server promotion (root) or when creating a child domain
+# 6. Domain Components (DC=...) → automatically derived from Domain Name; used in LDAP paths
+# 7. OUs and Users exist inside domains, not directly in the forest
+# 8. Multiple forests → multiple servers required
+# 9. The number of Domain Components (DC=...) in a domain is determined by the number of labels in the Domain Name you define during promotion; you can choose a Domain Name with 2, 3, 4, etc., labels as long as it is a valid DNS name
+# 10. A tree is a real Active Directory concept (not a separate object you create or manage with PowerShell); it represents one or more domains sharing a contiguous DNS namespace (e.g., corp.acme → sales.corp.acme → dev.corp.acme). In a single Windows Server lab, the promoted server creates one forest with one Forest Root Domain, therefore only one tree exists.
+
+# ACTIVE DIRECTORY CONCEPTS – BRIEF DEFINITIONS
+
+1. Domain Controller (DC) – a Windows Server promoted to manage a domain; it stores and enforces Active Directory data. Defined when you promote the server.
+2. Domain – a logical administrative boundary within a forest containing users, computers, and OUs. Defined when you promote the forest root or create a child domain.
+3. Domain Name – the DNS name you assign to the domain (e.g., corp.acme). Defined during promotion of the server (root) or creation of a child domain.
+4. Domain Components (DC=...) – LDAP representation of the domain name; each label in the domain name becomes a DC. Automatically derived from the Domain Name.

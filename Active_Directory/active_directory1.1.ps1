@@ -5,7 +5,7 @@ Import-Module ActiveDirectory
 $user = Get-ADUser -Identity "bwilson" -Properties *
 
 # Display the full Distinguished Name (DN)
-# Shows the exact LDAP location of the user in Active Directory
+# Shows the exact LDAP (Lightweight Directory Access Protocol) location of the user in Active Directory
 $user.DistinguishedName
 
 # Display the employee's first name
@@ -42,6 +42,18 @@ New-ADUser `
   -Path "OU=Employees,OU=Administration,OU=Company,DC=company,DC=com" `
   -AccountPassword (ConvertTo-SecureString "SecurePass123!" -AsPlainText -Force) `
   -Enabled $true
+
+# Create a new employee account in Active Directory and securely prompt for the password (not displayed or stored)
+New-ADUser `
+  -Name "Michael Thompson" `
+  -GivenName "Michael" `
+  -Surname "Thompson" `
+  -SamAccountName "mthompson" `
+  -UserPrincipalName "mthompson@corp.local" `
+  -Path "OU=Staff,OU=IT,OU=Corporate,DC=corp,DC=local" `
+  -AccountPassword (Read-Host "Password" -AsSecureString) `
+  -Enabled $true
+
 
 # Reset the password for the employee account
 Set-ADAccountPassword `
